@@ -83,7 +83,8 @@ def update_chart(demand, max_volume, start_volume, pump_flow):
         go.Scatter(
             x=harvesting.index, 
             y=harvesting.Tank_Volume, 
-            name='tank volume')
+            name='tank volume',
+        )
     ]
 
     return {
