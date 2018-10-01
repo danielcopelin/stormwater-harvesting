@@ -9,6 +9,8 @@ dash-core-components = "*"
 dash-html-components = "*"
 redis = "*"
 flask-caching = "*"
+pandas = "*"
+numpy = "*"
 
 [dev-packages]
 pylint = "*"
