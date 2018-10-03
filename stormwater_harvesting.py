@@ -32,8 +32,10 @@ def harvesting_calcs(data, demand, max_volume, start_volume, pump_flow):
     """
 
     def _harvest_flow(row, pump_flow):
-        harvest_flow = min(row.Discharge, pump_flow)
-        return harvest_flow
+        if row.Discharge < pump_flow:
+            return max(0.0, row.Discharge)
+        else:
+            return pump_flow
 
     df = data.copy()
 
@@ -54,7 +56,30 @@ def harvesting_calcs(data, demand, max_volume, start_volume, pump_flow):
         elif new_volume > max_volume:
             new_volume = max_volume
         tank_volume.append(new_volume)
+        harvest_actual.append(
+            0
+            # max(0, new_volume-tank_volume[i-1]+df.Demand_Volume.values[i])
+        )
         
     df['Tank_Volume'] = tank_volume
+    df['Harvest_Actual'] = harvest_actual
 
     return df
+
+def summarise_results(data):
+    """[summary]
+    
+    Arguments:
+        data {[type]} -- [description]
+    
+    Returns:
+        [type] -- [description]
+    """
+    df = data.copy()
+    summary = {}
+
+    summary['demand_total'] = df.Demand_Volume.sum()
+    summary['harvest_total'] = df.Harvest_Actual.sum()
+    summary['fraction_supplied'] = summary['demand_total'] / summary['harvest_total']
+
+    return summary

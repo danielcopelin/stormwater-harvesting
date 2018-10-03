@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "c3a09f0b9206c2b896cf3753803d0ce30a99f013c403b58b14e25743ab883f9f"
+            "sha256": "af464de27e2571f5ab568476560d3df92db9c92df3172c37e612cb5f9a0aa7c9"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -64,6 +64,13 @@
                 "sha256:2448923a9317036aca67979645e75d87b4350b6cf03afd23e0b12ca712967ace"
             ],
             "version": "==0.14.1"
+        },
+        "dash-resumable-upload": {
+            "hashes": [
+                "sha256:0faae4b53b839c988aef97f7ef09df93b11751ace9c0ea64de81e4935b4f6f61"
+            ],
+            "index": "pypi",
+            "version": "==0.0.3"
         },
         "decorator": {
             "hashes": [

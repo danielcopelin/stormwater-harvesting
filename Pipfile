@@ -11,6 +11,7 @@ redis = "*"
 flask-caching = "*"
 pandas = "*"
 numpy = "*"
+dash-resumable-upload = "*"
 
 [dev-packages]
 pylint = "*"
