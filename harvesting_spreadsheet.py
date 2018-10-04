@@ -223,5 +223,13 @@ if __name__ == '__main__':
 
     print("Mass volume error (m3): {0:.2f}".format(mass_balance_check(results)))
     print("Mass volume error (%): {0:.2f}".format(mass_balance_check(results) / df.Runoff.sum() * 100.0))
+    print(
+        "Number of negative values: {0}".format(
+            (results[
+                ['Overflow', 'Hourly_Runoff_Harvested', 'Tank_Volume', 
+                'Detention_Basin_Volume', 'Tank_Overflow']
+            ] < 0).sum().sum()
+        )
+    )
 
     results.to_csv('results.csv')
